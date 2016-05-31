@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public InputManager inputManager { get; private set; } 
 
     public Camera Cam;
+    public Vector3 cameraRotaion;
 
     #endregion
 
@@ -26,11 +27,13 @@ public class PlayerController : MonoBehaviour
         }
         Motor = GetComponent<PlayerMotor>();
         inputManager = GetComponent<InputManager>();
+        Cam = GetComponent<Camera>();
     }
 
     public void RotateCamera()
     {
-        Cam.transform.Rotate(inputManager.CalculateCameraRotation());
+        cameraRotaion = inputManager.CalculateCameraRotation();
+        Cam.transform.Rotate(cameraRotaion);
     }
     #endregion
     

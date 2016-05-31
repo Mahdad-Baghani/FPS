@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
     float _yRotation;
 
     [SerializeField]
-    float _mouseSensitivity = 3f;
+    float _mouseSensitivity = 10f;
     [SerializeField]
     InvertMouseAxes _invertMous = InvertMouseAxes.no;
 
@@ -49,7 +49,7 @@ public class InputManager : MonoBehaviour
 
         return _rotationOnY_Player;
     }
-    
+
     internal Vector3 CalculateCameraRotation()
     {
         _xRotation = Input.GetAxisRaw("Mouse Y");
