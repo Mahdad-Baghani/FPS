@@ -8,7 +8,6 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour 
 {
     #region Fields
-
     public static PlayerController Singleton { get; private set; }
     public PlayerMotor Motor { get; private set; }
     public InputManager inputManager { get; private set; } 
@@ -27,7 +26,9 @@ public class PlayerController : MonoBehaviour
         }
         Motor = GetComponent<PlayerMotor>();
         inputManager = GetComponent<InputManager>();
-        Cam = GetComponent<Camera>();
+        // Issue #01 Fixed: the refrence was not the camera, it was set to the player itseld;
+        // therefore wierd rotations occured while rotating the ingame view.
+        Cam = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<Camera>();
     }
 
     public void RotateCamera()
