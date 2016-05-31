@@ -47,6 +47,7 @@ public class InputManager : MonoBehaviour
         // Issue #01 : Not sure what happens here, seems to be right but the rotation sounds off a little bit.
         _yRotation = Input.GetAxisRaw("Mouse X");
         _rotationOnY_Player = new Vector3(0f, _yRotation, 0f) * _mouseSensitivity;
+        // Issue #01 fixed on class: PlayerController
 
         return _rotationOnY_Player;
     }
